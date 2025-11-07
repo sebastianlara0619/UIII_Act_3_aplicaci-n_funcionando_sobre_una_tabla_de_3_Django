@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Proveedores</h2>
+<table class="table table-striped align-middle">
+  <thead class="table-light">
+    <tr>
+      <th>Empresa</th>
+      <th>Nombre</th>
+      <th>Teléfono</th>
+      <th>Email</th>
+      <th>Ciudad</th>
+      <th>Registro</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in proveedores %}
+    <tr>
+      <td>{{ p.empresa }}</td>
+      <td>{{ p.nombre }}</td>
+      <td>{{ p.telefono }}</td>
+      <td>{{ p.email }}</td>
+      <td>{{ p.ciudad }}</td>
+      <td>{{ p.fecha_registro }}</td>
+      <td>
+        <a href="{% url 'app_Venta_Telefonos:actualizar_proveedor' p.id %}" class="btn btn-sm btn-info">Editar</a>
+        <a href="{% url 'app_Venta_Telefonos:borrar_proveedor' p.id %}" class="btn btn-sm btn-danger">Borrar</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="7">No hay proveedores registrados.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

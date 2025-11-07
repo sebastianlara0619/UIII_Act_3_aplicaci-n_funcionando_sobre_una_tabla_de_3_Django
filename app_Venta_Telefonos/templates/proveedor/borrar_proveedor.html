@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Confirmar eliminación</h2>
+<p>¿Desea borrar al proveedor <strong>{{ proveedor.empresa }} - {{ proveedor.nombre }}</strong>?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Sí, borrar</button>
+  <a href="{% url 'app_Venta_Telefonos:ver_proveedores' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

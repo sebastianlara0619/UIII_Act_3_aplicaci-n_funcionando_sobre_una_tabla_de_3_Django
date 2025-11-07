@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Actualizar Proveedor</h2>
+<form method="post" action="{% url 'app_Venta_Telefonos:realizar_actualizacion_proveedor' proveedor.id %}">
+  {% csrf_token %}
+  <div class="mb-3"><label>Nombre</label><input class="form-control" name="nombre" value="{{ proveedor.nombre }}"></div>
+  <div class="mb-3"><label>Empresa</label><input class="form-control" name="empresa" value="{{ proveedor.empresa }}"></div>
+  <div class="mb-3"><label>Teléfono</label><input class="form-control" name="telefono" value="{{ proveedor.telefono }}"></div>
+  <div class="mb-3"><label>Email</label><input class="form-control" name="email" value="{{ proveedor.email }}"></div>
+  <div class="mb-3"><label>Dirección</label><input class="form-control" name="direccion" value="{{ proveedor.direccion }}"></div>
+  <div class="mb-3"><label>Ciudad</label><input class="form-control" name="ciudad" value="{{ proveedor.ciudad }}"></div>
+  <button class="btn btn-success">Guardar cambios</button>
+  <a href="{% url 'app_Venta_Telefonos:ver_proveedores' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
